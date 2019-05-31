@@ -47,11 +47,15 @@ app.post("/compose", function(req,res){
 });
 
 app.get("/posts/:userid", function(req,res){
+    const requestedTitle = _.lowerCase(req.params.userid);
+
     posts.forEach(function(p) {
-      if(_.lowerCase(req.params.userid) === _.lowerCase(p.title)){
-        console.log("Match Found!");
-      }
-      else{
+     const storedTitle = _.lowerCase(p.title);
+
+    if(storedTitle === requestedTitle){
+        res.render("post", {p: p, requestedTitle: requestedTitle});
+    }
+    else{
         console.log("No Match!");
       }
     });
