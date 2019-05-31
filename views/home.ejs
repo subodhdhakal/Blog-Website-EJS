@@ -4,7 +4,9 @@
 
 <%  posts.forEach(function(p){ %>
     <h1><%= p.title %></h1>
-    <p><%= p.publish %></p>
+    <p><%= p.publish.substring(0, 100) + " ..."%>
+    <a href="/posts/<%= p.title %>">Read More</a>
+    </p>
 <%  }); %>
 
 <%- include("partials/footer"); -%>
