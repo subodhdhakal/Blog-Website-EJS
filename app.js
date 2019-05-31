@@ -33,7 +33,9 @@ app.get("/compose", function(req,res) {
   res.render("compose");
 });
 
-
+app.post("/compose", function(req,res){
+  console.log(req.body.publish_text);
+});
 
 
 app.listen(3000, function() {
