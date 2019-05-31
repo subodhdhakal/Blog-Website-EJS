@@ -1,5 +1,5 @@
 //jshint esversion:6
-
+//rs command when nodemon running removes any caches or previous content of our app.
 const express = require("express");
 const bodyParser = require("body-parser");
 const ejs = require("ejs");
@@ -35,7 +35,7 @@ app.get("/compose", function(req,res) {
 });
 
 app.post("/compose", function(req,res){
-  
+
   const post = {
     title: req.body.title_text,
     publish: req.body.publish_text
@@ -43,6 +43,10 @@ app.post("/compose", function(req,res){
 
   posts.push(post);
   res.redirect("/");
+});
+
+app.get("/posts/:userid", function(req,res){
+    console.log(req.params.userid);
 });
 
 
