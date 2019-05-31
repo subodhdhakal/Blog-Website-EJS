@@ -35,10 +35,12 @@ app.get("/compose", function(req,res) {
 });
 
 app.post("/compose", function(req,res){
+  
   const post = {
     title: req.body.title_text,
     publish: req.body.publish_text
   };
+
   posts.push(post);
   res.redirect("/");
 });
