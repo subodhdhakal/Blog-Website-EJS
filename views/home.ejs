@@ -3,7 +3,8 @@
 <p><%= homeStartingContent %></p>
 
 <%  posts.forEach(function(p){ %>
-    <% console.log(p.title); %>
+    <h1><%= p.title %></h1>
+    <p><%= p.publish %></p>
 <%  }); %>
 
 <%- include("partials/footer"); -%>
