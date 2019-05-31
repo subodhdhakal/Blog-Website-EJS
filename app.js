@@ -1,5 +1,5 @@
 //jshint esversion:6
-//rs command when nodemon running removes any caches or previous content of our app.
+//rs command when nodemon running removes any cache or previous content of our app.
 const express = require("express");
 const bodyParser = require("body-parser");
 const ejs = require("ejs");
@@ -46,7 +46,11 @@ app.post("/compose", function(req,res){
 });
 
 app.get("/posts/:userid", function(req,res){
-    console.log(req.params.userid);
+    posts.forEach(function(p) {
+      if(req.params.userid === p.title){
+        console.log("Match Found!");
+      }
+    });
 });
 
 
